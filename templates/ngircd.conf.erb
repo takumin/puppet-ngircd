@@ -1,235 +1,247 @@
 # Managed Puppet.
 #
 
+<% if @options['Global'] -%>
 [Global]
-<% if defined? @options['Global']['Name'] -%>
+<% if @options['Global']['Name'] -%>
 	Name = <%= @options['Global']['Name'] %>
 <% end -%>
-<% if defined? @options['Global']['AdminInfo1'] -%>
+<% if @options['Global']['AdminInfo1'] -%>
 	AdminInfo1 = <%= @options['Global']['AdminInfo1'] %>
 <% end -%>
-<% if defined? @options['Global']['AdminInfo2'] -%>
+<% if @options['Global']['AdminInfo2'] -%>
 	AdminInfo2 = <%= @options['Global']['AdminInfo2'] %>
 <% end -%>
-<% if defined? @options['Global']['AdminEMail'] -%>
+<% if @options['Global']['AdminEMail'] -%>
 	AdminEMail = <%= @options['Global']['AdminEMail'] %>
 <% end -%>
-<% if defined? @options['Global']['HelpFile'] -%>
+<% if @options['Global']['HelpFile'] -%>
 	HelpFile = <%= @options['Global']['HelpFile'] %>
 <% end -%>
-<% if defined? @options['Global']['Info'] -%>
+<% if @options['Global']['Info'] -%>
 	Info = <%= @options['Global']['Info'] %>
 <% end -%>
-<% if defined? @options['Global']['Listen'] -%>
+<% if @options['Global']['Listen'] -%>
 	Listen = <%= @options['Global']['Listen'] %>
 <% end -%>
-<% if defined? @options['Global']['MotdFile'] -%>
+<% if @options['Global']['MotdFile'] -%>
 	MotdFile = <%= @options['Global']['MotdFile'] %>
 <% end -%>
-<% if defined? @options['Global']['MotdPhrase'] -%>
+<% if @options['Global']['MotdPhrase'] -%>
 	MotdPhrase = <%= @options['Global']['MotdPhrase'] %>
 <% end -%>
-<% if defined? @options['Global']['Password'] -%>
+<% if @options['Global']['Password'] -%>
 	Password = <%= @options['Global']['Password'] %>
 <% end -%>
-<% if defined? @options['Global']['PidFile'] -%>
+<% if @options['Global']['PidFile'] -%>
 	PidFile = <%= @options['Global']['PidFile'] %>
 <% end -%>
-<% if defined? @options['Global']['Ports'] -%>
+<% if @options['Global']['Ports'] -%>
 	Ports = <%= @options['Global']['Ports'] %>
 <% end -%>
-<% if defined? @options['Global']['ServerGID'] -%>
+<% if @options['Global']['ServerGID'] -%>
 	ServerGID = <%= @options['Global']['ServerGID'] %>
 <% end -%>
-<% if defined? @options['Global']['ServerUID'] -%>
+<% if @options['Global']['ServerUID'] -%>
 	ServerUID = <%= @options['Global']['ServerUID'] %>
 <% end -%>
+<% end -%>
 
+<% if @options['Limits'] -%>
 [Limits]
-<% if defined? @options['Limits']['ConnectRetry'] -%>
+<% if @options['Limits']['ConnectRetry'] -%>
 	ConnectRetry = <%= @options['Limits']['ConnectRetry'] %>
 <% end -%>
-<% if defined? @options['Limits']['IdleTimeout'] -%>
+<% if @options['Limits']['IdleTimeout'] -%>
 	IdleTimeout = <%= @options['Limits']['IdleTimeout'] %>
 <% end -%>
-<% if defined? @options['Limits']['MaxConnections'] -%>
+<% if @options['Limits']['MaxConnections'] -%>
 	MaxConnections = <%= @options['Limits']['MaxConnections'] %>
 <% end -%>
-<% if defined? @options['Limits']['MaxConnectionsIP'] -%>
+<% if @options['Limits']['MaxConnectionsIP'] -%>
 	MaxConnectionsIP = <%= @options['Limits']['MaxConnectionsIP'] %>
 <% end -%>
-<% if defined? @options['Limits']['MaxJoins'] -%>
+<% if @options['Limits']['MaxJoins'] -%>
 	MaxJoins = <%= @options['Limits']['MaxJoins'] %>
 <% end -%>
-<% if defined? @options['Limits']['MaxNickLength'] -%>
+<% if @options['Limits']['MaxNickLength'] -%>
 	MaxNickLength = <%= @options['Limits']['MaxNickLength'] %>
 <% end -%>
-<% if defined? @options['Limits']['MaxListSize'] -%>
+<% if @options['Limits']['MaxListSize'] -%>
 	MaxListSize = <%= @options['Limits']['MaxListSize'] %>
 <% end -%>
-<% if defined? @options['Limits']['PingTimeout'] -%>
+<% if @options['Limits']['PingTimeout'] -%>
 	PingTimeout = <%= @options['Limits']['PingTimeout'] %>
 <% end -%>
-<% if defined? @options['Limits']['PongTimeout'] -%>
+<% if @options['Limits']['PongTimeout'] -%>
 	PongTimeout = <%= @options['Limits']['PongTimeout'] %>
 <% end -%>
 
 [Options]
-<% if defined? @options['Options']['AllowedChannelTypes'] -%>
+<% if @options['Options']['AllowedChannelTypes'] -%>
 	AllowedChannelTypes = <%= @options['Options']['AllowedChannelTypes'] %>
 <% end -%>
-<% if defined? @options['Options']['AllowRemoteOper'] -%>
+<% if @options['Options']['AllowRemoteOper'] -%>
 	AllowRemoteOper = <%= @options['Options']['AllowRemoteOper'] %>
 <% end -%>
-<% if defined? @options['Options']['ChrootDir'] -%>
+<% if @options['Options']['ChrootDir'] -%>
 	ChrootDir = <%= @options['Options']['ChrootDir'] %>
 <% end -%>
-<% if defined? @options['Options']['CloakHost'] -%>
+<% if @options['Options']['CloakHost'] -%>
 	CloakHost = <%= @options['Options']['CloakHost'] %>
 <% end -%>
-<% if defined? @options['Options']['CloakHostModeX'] -%>
+<% if @options['Options']['CloakHostModeX'] -%>
 	CloakHostModeX = <%= @options['Options']['CloakHostModeX'] %>
 <% end -%>
-<% if defined? @options['Options']['CloakHostSalt'] -%>
+<% if @options['Options']['CloakHostSalt'] -%>
 	CloakHostSalt = <%= @options['Options']['CloakHostSalt'] %>
 <% end -%>
-<% if defined? @options['Options']['CloakUserToNick'] -%>
+<% if @options['Options']['CloakUserToNick'] -%>
 	CloakUserToNick = <%= @options['Options']['CloakUserToNick'] %>
 <% end -%>
-<% if defined? @options['Options']['ConnectIPv6'] -%>
+<% if @options['Options']['ConnectIPv6'] -%>
 	ConnectIPv6 = <%= @options['Options']['ConnectIPv6'] %>
 <% end -%>
-<% if defined? @options['Options']['ConnectIPv4'] -%>
+<% if @options['Options']['ConnectIPv4'] -%>
 	ConnectIPv4 = <%= @options['Options']['ConnectIPv4'] %>
 <% end -%>
-<% if defined? @options['Options']['DefaultUserModes'] -%>
+<% if @options['Options']['DefaultUserModes'] -%>
 	DefaultUserModes = <%= @options['Options']['DefaultUserModes'] %>
 <% end -%>
-<% if defined? @options['Options']['DNS'] -%>
+<% if @options['Options']['DNS'] -%>
 	DNS = <%= @options['Options']['DNS'] %>
 <% end -%>
-<% if defined? @options['Options']['Ident'] -%>
+<% if @options['Options']['Ident'] -%>
 	Ident = <%= @options['Options']['Ident'] %>
 <% end -%>
-<% if defined? @options['Options']['IncludeDir'] -%>
+<% if @options['Options']['IncludeDir'] -%>
 	IncludeDir = <%= @options['Options']['IncludeDir'] %>
 <% end -%>
-<% if defined? @options['Options']['MorePrivacy'] -%>
+<% if @options['Options']['MorePrivacy'] -%>
 	MorePrivacy = <%= @options['Options']['MorePrivacy'] %>
 <% end -%>
-<% if defined? @options['Options']['NoticeAuth'] -%>
+<% if @options['Options']['NoticeAuth'] -%>
 	NoticeAuth = <%= @options['Options']['NoticeAuth'] %>
 <% end -%>
-<% if defined? @options['Options']['OperCanUseMode'] -%>
+<% if @options['Options']['OperCanUseMode'] -%>
 	OperCanUseMode = <%= @options['Options']['OperCanUseMode'] %>
 <% end -%>
-<% if defined? @options['Options']['OperChanPAutoOp'] -%>
+<% if @options['Options']['OperChanPAutoOp'] -%>
 	OperChanPAutoOp = <%= @options['Options']['OperChanPAutoOp'] %>
 <% end -%>
-<% if defined? @options['Options']['OperServerMode'] -%>
+<% if @options['Options']['OperServerMode'] -%>
 	OperServerMode = <%= @options['Options']['OperServerMode'] %>
 <% end -%>
-<% if defined? @options['Options']['PAM'] -%>
+<% if @options['Options']['PAM'] -%>
 	PAM = <%= @options['Options']['PAM'] %>
 <% end -%>
-<% if defined? @options['Options']['PAMIsOptional'] -%>
+<% if @options['Options']['PAMIsOptional'] -%>
 	PAMIsOptional = <%= @options['Options']['PAMIsOptional'] %>
 <% end -%>
-<% if defined? @options['Options']['RequireAuthPing'] -%>
+<% if @options['Options']['RequireAuthPing'] -%>
 	RequireAuthPing = <%= @options['Options']['RequireAuthPing'] %>
 <% end -%>
-<% if defined? @options['Options']['ScrubCTCP'] -%>
+<% if @options['Options']['ScrubCTCP'] -%>
 	ScrubCTCP = <%= @options['Options']['ScrubCTCP'] %>
 <% end -%>
-<% if defined? @options['Options']['SyslogFacility'] -%>
+<% if @options['Options']['SyslogFacility'] -%>
 	SyslogFacility = <%= @options['Options']['SyslogFacility'] %>
 <% end -%>
-<% if defined? @options['Options']['WebircPassword'] -%>
+<% if @options['Options']['WebircPassword'] -%>
 	WebircPassword = <%= @options['Options']['WebircPassword'] %>
 <% end -%>
+<% end -%>
 
+<% if @options['SSL'] -%>
 [SSL]
-<% if defined? @options['SSL']['CertFile'] -%>
+<% if @options['SSL']['CertFile'] -%>
 	CertFile = <%= @options['SSL']['CertFile'] %>
 <% end -%>
-<% if defined? @options['SSL']['CipherList'] -%>
+<% if @options['SSL']['CipherList'] -%>
 	CipherList = <%= @options['SSL']['CipherList'] %>
 <% end -%>
-<% if defined? @options['SSL']['CipherList'] -%>
+<% if @options['SSL']['CipherList'] -%>
 	CipherList = <%= @options['SSL']['CipherList'] %>
 <% end -%>
-<% if defined? @options['SSL']['DHFile'] -%>
+<% if @options['SSL']['DHFile'] -%>
 	DHFile = <%= @options['SSL']['DHFile'] %>
 <% end -%>
-<% if defined? @options['SSL']['KeyFile'] -%>
+<% if @options['SSL']['KeyFile'] -%>
 	KeyFile = <%= @options['SSL']['KeyFile'] %>
 <% end -%>
-<% if defined? @options['SSL']['KeyFilePassword'] -%>
+<% if @options['SSL']['KeyFilePassword'] -%>
 	KeyFilePassword = <%= @options['SSL']['KeyFilePassword'] %>
 <% end -%>
-<% if defined? @options['SSL']['Ports'] -%>
+<% if @options['SSL']['Ports'] -%>
 	Ports = <%= @options['SSL']['Ports'] %>
 <% end -%>
+<% end -%>
 
+<% if @options['Operator'] -%>
 [Operator]
-<% if defined? @options['Operator']['Name'] -%>
+<% if @options['Operator']['Name'] -%>
 	Name = <%= @options['Operator']['Name'] %>
 <% end -%>
-<% if defined? @options['Operator']['Password'] -%>
+<% if @options['Operator']['Password'] -%>
 	Password = <%= @options['Operator']['Password'] %>
 <% end -%>
-<% if defined? @options['Operator']['Mask'] -%>
+<% if @options['Operator']['Mask'] -%>
 	Mask = <%= @options['Operator']['Mask'] %>
 <% end -%>
+<% end -%>
 
+<% if @options['Server'] -%>
 [Server]
-<% if defined? @options['Server']['Name'] -%>
+<% if @options['Server']['Name'] -%>
 	Name = <%= @options['Server']['Name'] %>
 <% end -%>
-<% if defined? @options['Server']['Host'] -%>
+<% if @options['Server']['Host'] -%>
 	Host = <%= @options['Server']['Host'] %>
 <% end -%>
-<% if defined? @options['Server']['Bind'] -%>
+<% if @options['Server']['Bind'] -%>
 	Bind = <%= @options['Server']['Bind'] %>
 <% end -%>
-<% if defined? @options['Server']['Port'] -%>
+<% if @options['Server']['Port'] -%>
 	Port = <%= @options['Server']['Port'] %>
 <% end -%>
-<% if defined? @options['Server']['MyPassword'] -%>
+<% if @options['Server']['MyPassword'] -%>
 	MyPassword = <%= @options['Server']['MyPassword'] %>
 <% end -%>
-<% if defined? @options['Server']['PeerPassword'] -%>
+<% if @options['Server']['PeerPassword'] -%>
 	PeerPassword = <%= @options['Server']['PeerPassword'] %>
 <% end -%>
-<% if defined? @options['Server']['Group'] -%>
+<% if @options['Server']['Group'] -%>
 	Group = <%= @options['Server']['Group'] %>
 <% end -%>
-<% if defined? @options['Server']['Passive'] -%>
+<% if @options['Server']['Passive'] -%>
 	Passive = <%= @options['Server']['Passive'] %>
 <% end -%>
-<% if defined? @options['Server']['SSLConnect'] -%>
+<% if @options['Server']['SSLConnect'] -%>
 	SSLConnect = <%= @options['Server']['SSLConnect'] %>
 <% end -%>
-<% if defined? @options['Server']['ServiceMask'] -%>
+<% if @options['Server']['ServiceMask'] -%>
 	ServiceMask = <%= @options['Server']['ServiceMask'] %>
 <% end -%>
+<% end -%>
 
+<% if @options['Channel'] -%>
 [Channel]
-<% if defined? @options['Channel']['Name'] -%>
+<% if @options['Channel']['Name'] -%>
 	Name = <%= @options['Channel']['Name'] %>
 <% end -%>
-<% if defined? @options['Channel']['Topic'] -%>
+<% if @options['Channel']['Topic'] -%>
 	Topic = <%= @options['Channel']['Topic'] %>
 <% end -%>
-<% if defined? @options['Channel']['Modes'] -%>
+<% if @options['Channel']['Modes'] -%>
 	Modes = <%= @options['Channel']['Modes'] %>
 <% end -%>
-<% if defined? @options['Channel']['Key'] -%>
+<% if @options['Channel']['Key'] -%>
 	Key = <%= @options['Channel']['Key'] %>
 <% end -%>
-<% if defined? @options['Channel']['KeyFile'] -%>
+<% if @options['Channel']['KeyFile'] -%>
 	KeyFile = <%= @options['Channel']['KeyFile'] %>
 <% end -%>
-<% if defined? @options['Channel']['MaxUsers'] -%>
+<% if @options['Channel']['MaxUsers'] -%>
 	MaxUsers = <%= @options['Channel']['MaxUsers'] %>
+<% end -%>
 <% end -%>
