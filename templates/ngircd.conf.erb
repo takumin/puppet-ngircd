@@ -76,7 +76,9 @@
 <% if @options['Limits']['PongTimeout'] -%>
 	PongTimeout = <%= @options['Limits']['PongTimeout'] %>
 <% end -%>
+<% end -%>
 
+<% if @options['Options'] -%>
 [Options]
 <% if @options['Options']['AllowedChannelTypes'] -%>
 	AllowedChannelTypes = <%= @options['Options']['AllowedChannelTypes'] %>
