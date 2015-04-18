@@ -1,0 +1,14 @@
+# Managed Puppet.
+#
+
+[Global]
+<% if defined? @options[:Global][:Name] -%>
+	Name = <%= @options[:Global][:Name] %>
+<% end -%>
+
+[Limits]
+[Options]
+[SSL]
+[Operator]
+[Server]
+[Channel]
