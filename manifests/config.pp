@@ -8,7 +8,7 @@ class ngircd::config {
     ensure       => file,
     owner        => 0,
     group        => 0,
-    mode         => '0644',
+    mode         => '0600',
     content      => template($::ngircd::config_template),
     validate_cmd => "$::ngircd::prefix/sbin/ngircd -t -f %",
   }
