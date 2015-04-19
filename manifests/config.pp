@@ -24,7 +24,7 @@ class ngircd::config {
   # OpenSSL Self Sign Certification
   #
   if $::ngircd::self_signed == true {
-    file { "$::ngircd::ca_dir":
+    file { "$::ngircd::self_ca_dir":
       ensure  => directory,
       owner   => 0,
       group   => 0,
@@ -39,17 +39,17 @@ class ngircd::config {
         '/usr/bin',
       ],
       cwd     => [
-        "$::ngircd::ca_dir",
+        "$::ngircd::self_ca_dir",
       ],
       creates => [
-        "$::ngircd::ca_dir/server.key",
+        "$::ngircd::self_ca_dir/server.key",
       ],
       require => [
-        File["$::ngircd::ca_dir"],
+        File["$::ngircd::self_ca_dir"],
       ],
     }
 
-    $subj_args = "/C=$::ngircd::ca_C/ST=$::ngircd::ca_ST/L=$::ngircd::ca_L/O=$::ngircd::ca_O/OU=$::ngircd::ca_OU/CN=$::ngircd::ca_CN/E=$::ngircd::ca_E/"
+    $subj_args = "/C=$::ngircd::self_ca_C/ST=$::ngircd::self_ca_ST/L=$::ngircd::self_ca_L/O=$::ngircd::self_ca_O/OU=$::ngircd::self_ca_OU/CN=$::ngircd::self_ca_CN/E=$::ngircd::self_ca_E/"
 
     exec { 'OpenSslReq: ngircd':
       command => "openssl req -out server.csr -new -key server.key -subj $subj_args -batch",
@@ -58,31 +58,31 @@ class ngircd::config {
         '/usr/bin',
       ],
       cwd     => [
-        "$::ngircd::ca_dir",
+        "$::ngircd::self_ca_dir",
       ],
       creates => [
-        "$::ngircd::ca_dir/server.csr",
+        "$::ngircd::self_ca_dir/server.csr",
       ],
       require => [
-        File["$::ngircd::ca_dir"],
+        File["$::ngircd::self_ca_dir"],
         Exec['OpenSslGenrsa: ngircd'],
       ],
     }
 
     exec { 'OpenSslX509: ngircd':
-      command => 'openssl x509 -out server.crt -in server.csr -signkey server.key -days 365 -req -extensions v3_ca',
+      command => 'openssl x509 -out server.crt -in server.csr -signkey server.key -days 365 -req',
       path    => [
         '/usr/local/bin',
         '/usr/bin',
       ],
       cwd     => [
-        "$::ngircd::ca_dir",
+        "$::ngircd::self_ca_dir",
       ],
       creates => [
-        "$::ngircd::ca_dir/server.crt",
+        "$::ngircd::self_ca_dir/server.crt",
       ],
       require => [
-        File["$::ngircd::ca_dir"],
+        File["$::ngircd::self_ca_dir"],
         Exec['OpenSslGenrsa: ngircd'],
         Exec['OpenSslReq: ngircd'],
       ],

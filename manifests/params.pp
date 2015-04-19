@@ -29,14 +29,14 @@ class ngircd::params {
   # Module Configuration
   #
   $self_signed = false
-  $ca_dir      = "$config_dir/ssl"
-  $ca_C        = undef
-  $ca_ST       = undef
-  $ca_L        = undef
-  $ca_O        = undef
-  $ca_OU       = undef
-  $ca_CN       = undef
-  $ca_E        = undef
+  $self_ca_dir = "$config_dir/ssl"
+  $self_ca_C   = undef
+  $self_ca_ST  = undef
+  $self_ca_L   = undef
+  $self_ca_O   = "${::domain}"
+  $self_ca_OU  = "${::hostname}"
+  $self_ca_CN  = "${::fqdn}"
+  $self_ca_E   = "postmaster@${::domain}"
 
   # Global Configuration
   $options = {
