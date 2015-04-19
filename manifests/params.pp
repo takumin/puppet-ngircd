@@ -16,8 +16,9 @@ class ngircd::params {
       $prefix          = '/usr/local'
       $package_name    = 'irc/ngircd'
       $service_name    = 'ngircd'
-      $config_file     = '/usr/local/etc/ngircd.conf'
+      $config_file     = "$prefix/etc/ngircd.conf"
       $config_template = 'ngircd/ngircd.conf.erb'
+      $config_dir      = "$prefix/etc/ngircd.d"
     }
     default: {
       fail("${::operatingsystem} not supported")
@@ -27,6 +28,17 @@ class ngircd::params {
   #
   # Module Configuration
   #
+  $self_signed = false
+  $ca_dir      = "$config_dir/ssl"
+  $ca_C        = undef
+  $ca_ST       = undef
+  $ca_L        = undef
+  $ca_O        = undef
+  $ca_OU       = undef
+  $ca_CN       = undef
+  $ca_E        = undef
+
+  # Global Configuration
   $options = {
     'Global'                => {
       'Name'                => undef,
