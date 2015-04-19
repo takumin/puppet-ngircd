@@ -32,6 +32,8 @@ class ngircd::config {
       require => File["$::ngircd::config_dir"]
     }
 
+    $subj_args = "/C=$::ngircd::self_ca_C/ST=$::ngircd::self_ca_ST/L=$::ngircd::self_ca_L/O=$::ngircd::self_ca_O/OU=$::ngircd::self_ca_OU/CN=$::ngircd::self_ca_CN/E=$::ngircd::self_ca_E/"
+
     exec { 'OpenSslGenrsa: ngircd':
       command => 'openssl genrsa -out server.key 2048',
       path    => [
@@ -49,7 +51,6 @@ class ngircd::config {
       ],
     }
 
-    $subj_args = "/C=$::ngircd::self_ca_C/ST=$::ngircd::self_ca_ST/L=$::ngircd::self_ca_L/O=$::ngircd::self_ca_O/OU=$::ngircd::self_ca_OU/CN=$::ngircd::self_ca_CN/E=$::ngircd::self_ca_E/"
 
     exec { 'OpenSslReq: ngircd':
       command => "openssl req -out server.csr -new -key server.key -subj $subj_args -batch",
@@ -85,6 +86,23 @@ class ngircd::config {
         File["$::ngircd::self_ca_dir"],
         Exec['OpenSslGenrsa: ngircd'],
         Exec['OpenSslReq: ngircd'],
+      ],
+    }
+
+    exec { 'OpenSslGenDh: ngircd':
+      command => 'openssl dhparam 2048 -out dhparam.pem',
+      path    => [
+        '/usr/local/bin',
+        '/usr/bin',
+      ],
+      cwd     => [
+        "$::ngircd::self_ca_dir",
+      ],
+      creates => [
+        "$::ngircd::self_ca_dir/dhparam.pem",
+      ],
+      require => [
+        File["$::ngircd::self_ca_dir"],
       ],
     }
   }

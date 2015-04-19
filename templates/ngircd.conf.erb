@@ -156,20 +156,29 @@
 
 <% if @options['SSL'] -%>
 [SSL]
-<% if @options['SSL']['CertFile'] -%>
+<% if defined? @self_signed -%>
+	CertFile = <%= @self_ca_dir + '/server.crt' %>
+<% else -%>
+<%   if @options['SSL']['CertFile'] -%>
 	CertFile = <%= @options['SSL']['CertFile'] %>
+<%   end -%>
 <% end -%>
 <% if @options['SSL']['CipherList'] -%>
 	CipherList = <%= @options['SSL']['CipherList'] %>
 <% end -%>
-<% if @options['SSL']['CipherList'] -%>
-	CipherList = <%= @options['SSL']['CipherList'] %>
-<% end -%>
-<% if @options['SSL']['DHFile'] -%>
+<% if defined? @self_signed -%>
+	DHFile = <%= @self_ca_dir + '/dhparam.pem' %>
+<% else -%>
+<%   if @options['SSL']['DHFile'] -%>
 	DHFile = <%= @options['SSL']['DHFile'] %>
+<%   end -%>
 <% end -%>
-<% if @options['SSL']['KeyFile'] -%>
+<% if defined? @self_signed -%>
+	KeyFile = <%= @self_ca_dir + '/server.key' %>
+<% else -%>
+<%   if @options['SSL']['KeyFile'] -%>
 	KeyFile = <%= @options['SSL']['KeyFile'] %>
+<%   end -%>
 <% end -%>
 <% if @options['SSL']['KeyFilePassword'] -%>
 	KeyFilePassword = <%= @options['SSL']['KeyFilePassword'] %>
